@@ -16,6 +16,7 @@
 
 .background {
   @include absoluteBackground(1);
+  overflow: hidden;
 }
 
 .topLayer {
