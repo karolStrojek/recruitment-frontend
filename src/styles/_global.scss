@@ -1,0 +1,55 @@
+@use "./colors";
+@import url("https://fonts.googleapis.com/css2?family=Asar&family=Raleway:wght@500&display=swap");
+
+html,
+body,
+#root {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Raleway", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+
+  &.bright {
+    background-color: colors.$bright-900;
+  }
+}
+
+.bright {
+  h1 {
+    color: colors.$dark-800;
+  }
+  *:focus {
+    outline: none;
+  }
+  *:focus-visible {
+    outline: 2px double #000;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  box-shadow: inset 0 0 5px #fffe;
+  border-radius: 0.4rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000a;
+  border-radius: 0.4rem;
+}

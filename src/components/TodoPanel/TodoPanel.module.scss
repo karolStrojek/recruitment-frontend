@@ -1,0 +1,180 @@
+@use "../../styles/colors";
+
+.wrapper {
+  @media (max-width: 1200px) {
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-left: 20rem;
+  overflow: hidden;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.listName {
+  display: flex;
+  position: relative;
+  width: 90%;
+  height: 3rem;
+  max-width: 30rem;
+
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    button {
+      background-color: #0002;
+    }
+  }
+  input {
+    width: 80%;
+    background-color: transparent;
+    border: 0;
+
+    font-weight: bold;
+    font-family: "Raleway", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  button {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: transparent;
+
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.4);
+    }
+    * {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.taskPanel {
+  @media (max-width: 1200px) {
+    width: 95%;
+    max-height: 85%;
+  }
+  @media (max-height: 760px) {
+    max-height: 80%;
+  }
+  @media (max-height: 500px) {
+    max-height: 70%;
+  }
+
+  position: relative;
+  width: 100%;
+  height: 90%;
+  max-width: 30rem;
+  max-height: 35rem;
+  border: 0px solid #2225;
+  border-radius: 0.8rem;
+
+  overflow: hidden;
+
+  .insideBackground {
+    @media (max-width: 1200px) {
+      background-size: cover;
+    }
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+    filter: brightness(1) blur(0.3rem);
+  }
+
+  .insideContent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 0.5rem;
+    overflow: auto;
+    z-index: 2;
+
+    box-shadow: inset 0px 0px 10px #000f;
+    & > button {
+      display: flex;
+      position: relative;
+      border: 0px;
+      margin: 0.5rem 0rem 0rem 0.5rem;
+
+      background-color: transparent;
+
+      font-family: "Raleway", Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      color: colors.$bright-900;
+      font-size: 20px;
+      text-shadow: 1px 1px 4px #000a;
+
+      align-items: center;
+      gap: 0.5rem;
+
+      transition: transform 0.8s, text-shadow 0.5s;
+
+      &:hover {
+        transform: scale(1.05);
+        text-shadow: 1px 1px 8px #000a;
+        &::after {
+          box-shadow: 1px 1px 8px #000a;
+          transition: box-shadow 0.5s;
+        }
+      }
+
+      &::after {
+        content: " ";
+        position: absolute;
+        width: 8rem;
+        height: 2px;
+        left: 0.3rem;
+        bottom: -0.2rem;
+        box-shadow: 1px 1px 4px #000a;
+
+        background-color: colors.$bright-900;
+      }
+      .arrowUp {
+        transition: 0.6s;
+        transform: rotate(-90deg);
+      }
+      .arrowDown {
+        transition: 0.6s;
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+.taskList {
+  overflow: hidden;
+  gap: 0.3rem;
+
+  &.listOpen {
+    transition: 0.5s;
+    height: auto;
+  }
+  &.listClosed {
+    transition: 0.5s;
+    height: 0px;
+  }
+}

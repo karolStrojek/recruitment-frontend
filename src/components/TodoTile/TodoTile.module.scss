@@ -1,0 +1,138 @@
+@use "../../styles/colors";
+
+.wrapper {
+  @media (max-width: 1200px) {
+    width: 100%;
+    margin-left: -5%;
+  }
+
+  display: flex;
+  position: relative;
+  width: 95%;
+  height: 5rem;
+  margin: 0.5rem 0;
+  margin-left: -0.4rem;
+  padding: 0;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px 0px #000f;
+
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 2%;
+
+  &:hover {
+    .deleteButton {
+      & > * {
+        opacity: 100%;
+      }
+    }
+  }
+}
+
+.checkButton {
+  display: flex;
+  width: 15%;
+  height: 100%;
+  border: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+
+  transition: 0.2s;
+
+  &:active {
+    box-shadow: inset 0px 0px 4px #000e;
+    & > * {
+      transform: scale(0.7);
+    }
+  }
+  &:hover {
+    box-shadow: 0px 0px 4px #0006;
+    color: colors.$primary-400;
+    background-color: #fffaff;
+    &:active {
+      box-shadow: inset 0px 0px 4px #000e;
+    }
+  }
+  & > * {
+    width: 60%;
+    height: 60%;
+
+    transition: 0.1s;
+
+    filter: drop-shadow(2px 2px 2px rgba(203, 184, 184, 0.4));
+  }
+}
+
+.taskText {
+  max-width: 66%;
+  & > span {
+    font-size: 20px;
+    font-family: "Raleway", Courier, monospace;
+    text-decoration: none;
+
+    background-image: linear-gradient(black, black);
+    background-repeat: no-repeat;
+    background-position: center left;
+
+    transition: background-size 500ms ease-in-out;
+
+    &.textStrike {
+      background-size: 100% 2px;
+    }
+    &.textNormal {
+      background-size: 0% 2px;
+    }
+  }
+}
+
+.priorityBackground {
+  width: 15%;
+  height: 94%;
+
+  box-sizing: border-box;
+  border-radius: 0 0.4rem 0.4rem 0;
+  margin-right: 2px;
+  margin-left: auto;
+
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.deleteButton {
+  display: flex;
+  position: absolute;
+  width: 15%;
+  height: 100%;
+  right: 0;
+  border: hidden;
+
+  background: transparent;
+
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.4s;
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  & > * {
+    @media (pointer: coarse) {
+      opacity: 1;
+    }
+    width: 60%;
+    height: 60%;
+    opacity: 0;
+    color: white;
+
+    transition: 0.3s;
+
+    filter: drop-shadow(2px 2px 2px #000a);
+  }
+}
